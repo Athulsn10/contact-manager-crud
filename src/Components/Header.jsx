@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
+import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 import "./Header.css";
-import axios from 'axios';
+import axios from "axios";
 import { serverURL } from "../serverURL";
+import Home from "./Home";
 
 function Header() {
   const [values, setValues] = useState({
-    name: '',
-    phone: '',
-    email: ''
+    name: "",
+    phone: "",
+    email: "",
   });
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -20,13 +21,14 @@ function Header() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${serverURL}/contact`, values)
-      .then(res => {
+    axios
+      .post(`${serverURL}/contact`, values)
+      .then((res) => {
         console.log(res);
         handleClose();
+        window.location.reload();
       })
-      .catch(err => console.log(err));
-      window.location.reload();
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -38,8 +40,15 @@ function Header() {
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
               New Contact
-              <Button onClick={handleShow} style={{ backgroundColor: 'transparent', border: 'none' }} type="button">
-                <i className="fs-3 fa-solid fa-circle-plus" style={{ color: '#000000' }}></i>
+              <Button
+                onClick={handleShow}
+                style={{ backgroundColor: "transparent", border: "none" }}
+                type="button"
+              >
+                <i
+                  className="fs-3 fa-solid fa-circle-plus"
+                  style={{ color: "#000000" }}
+                ></i>
               </Button>
             </Navbar.Text>
           </Navbar.Collapse>
@@ -53,11 +62,30 @@ function Header() {
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Contact Name</Form.Label>
-              <Form.Control onChange={e => setValues({ ...values, name: e.target.value })} className='mb-3' type="text" placeholder="Enter Name" />
+              <Form.Control
+                onChange={(e) => setValues({ ...values, name: e.target.value })}
+                className="mb-3"
+                type="text"
+                placeholder="Enter Name"
+              />
               <Form.Label>Phone Number</Form.Label>
-              <Form.Control onChange={e => setValues({ ...values, phone: e.target.value })} className='mb-3' type="number" placeholder="Phone Number" maxLength="10" />
+              <Form.Control
+                onChange={(e) =>
+                  setValues({ ...values, phone: e.target.value })
+                }
+                className="mb-3"
+                type="number"
+                placeholder="Phone Number"
+                maxLength="10"
+              />
               <Form.Label>Email</Form.Label>
-              <Form.Control onChange={e => setValues({ ...values, email: e.target.value })} type="email" placeholder="Email" />
+              <Form.Control
+                onChange={(e) =>
+                  setValues({ ...values, email: e.target.value })
+                }
+                type="email"
+                placeholder="Email"
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -70,6 +98,7 @@ function Header() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Home />
     </>
   );
 }

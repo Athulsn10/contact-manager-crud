@@ -1,0 +1,71 @@
+<ListGroup>
+    {data.map((contact, index) => (
+      <ListGroup.Item>{contact.name}  <Button
+        onClick={() => handleDelete(contact.id)}
+        style={{ backgroundColor: "transparent", border: "none" }}
+        variant="success"
+      >
+        <i className="fs-4 fa-solid fa-trash-can" style={{ color: "#ff0000" }}></i>
+      </Button>
+      <Button
+        onClick={() => handleShow(index)}
+        style={{ backgroundColor: "transparent", border: "none" }}
+        variant="success"
+      >
+        <i className="fs-4 fa-solid fa-pen-to-square" style={{ color: "#0008ff" }}></i>
+      </Button> </ListGroup.Item>
+      
+      ))}
+</ListGroup>
+
+{data.map((contact, index) => (
+    <Card className="me-4" key={contact.id} style={{ width: "15rem", height: "fit-content" }}>
+    <Card.Img
+      style={{ height: "auto", width: "auto" }}
+      variant="top"
+      className="img-fluid"
+      src="https://static.vecteezy.com/system/resources/previews/007/479/717/original/icon-contacts-suitable-for-mobile-apps-symbol-long-shadow-style-simple-design-editable-design-template-simple-symbol-illustration-vector.jpg"
+    />
+    <Card.Body>
+      <Card.Title>{contact.name}</Card.Title>
+    </Card.Body>
+    <ListGroup className="list-group-flush">
+      <ListGroup.Item>
+        <h6 className="fw-bold">Phone Number</h6> {contact.phone}
+      </ListGroup.Item>
+      <ListGroup.Item>
+        <h6 className="fw-bold">Email</h6> {contact.email}
+      </ListGroup.Item>
+    </ListGroup>
+    <Card.Body>
+      <Button
+        onClick={() => handleDelete(contact.id)}
+        style={{ backgroundColor: "transparent", border: "none" }}
+        variant="success"
+      >
+        <i className="fs-4 fa-solid fa-trash-can" style={{ color: "#ff0000" }}></i>
+      </Button>
+      <Button
+        onClick={() => handleShow(index)}
+        style={{ backgroundColor: "transparent", border: "none" }}
+        variant="success"
+      >
+        <i className="fs-4 fa-solid fa-pen-to-square" style={{ color: "#0008ff" }}></i>
+      </Button>
+    </Card.Body>
+  </Card>
+
+   ))}
+
+   <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Google_Contacts_logo.png"/>
+      <Card.Body>
+        <Card.Title>{data.name}</Card.Title>
+        <Card.Text>
+          <h4 className='text-center'>{data.name}</h4>
+              <h6 className="fw-bold">Phone: </h6> {data.phone}
+              <h6 className="fw-bold">Email: </h6> {data.email} 
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
