@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Container from "react-bootstrap/Container";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -33,27 +34,30 @@ function Header() {
 
   return (
     <>
-      <Navbar className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">Contact Manager</Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-              New Contact
-              <Button
-                onClick={handleShow}
-                style={{ backgroundColor: "transparent", border: "none" }}
-                type="button"
-              >
-                <i
-                  className="fs-3 fa-solid fa-circle-plus"
-                  style={{ color: "#000000" }}
-                ></i>
-              </Button>
-            </Navbar.Text>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+       <Navbar className="bg-body-tertiary justify-content-between">
+      <p className="ms-4 fs-4 fw-bold">Contact Manager</p>
+        <Row>
+          <Col xs="auto">
+          </Col>
+          <Col xs="auto">
+           <div className="me-4">
+             <Navbar.Text>
+                  New Contact
+                </Navbar.Text>
+               <Button
+                      onClick={handleShow}
+                      style={{ backgroundColor: "transparent", border: "none" }}
+                      type="button"
+                    >
+                      <i
+                        className="fs-3 fa-solid fa-circle-plus"
+                        style={{ color: "#000000" }}
+                      ></i>
+                    </Button>
+           </div>
+          </Col>
+        </Row>
+    </Navbar>
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>Add New Contact</Modal.Title>
