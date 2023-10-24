@@ -78,7 +78,7 @@ function Home() {
 
   return (
     <>
-      <div className="mt-5 mx-4">
+      <div className="mx-4 mt-5">
       <ToastContainer
      position="bottom-left"
       autoClose={3000}
@@ -139,7 +139,7 @@ function Home() {
             </Button>
           </Modal.Footer>
         </Modal>
-        <ListGroup className="w-100 d-flex flex-column " >
+        <ListGroup className="w-100 d-flex flex-column mt-5 " >
     {data.map((contact, index) => (
       <ListGroup.Item style={{ border: 'none' }} className="mb-2 d-flex justify-content-between align-items-center">
         <div className="d-flex align-items-center">

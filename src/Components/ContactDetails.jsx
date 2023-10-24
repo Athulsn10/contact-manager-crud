@@ -69,6 +69,7 @@ function ContactDetails() {
         .then((res) => {
           console.log(res);
           handleClose();
+          window.location.reload();
         })
         .catch((err) => console.log(err));
     }

@@ -34,7 +34,7 @@ function Header() {
 
   return (
     <>
-       <Navbar className="bg-body-tertiary justify-content-between">
+       <Navbar fixed="top" className="bg-body-tertiary justify-content-between">
       <p className="ms-4 fs-4 fw-bold">Contact Manager</p>
         <Row>
           <Col xs="auto">
